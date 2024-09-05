@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">User Information</h2>
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <td th:text="${user.user_id ?: 'Trống'}">Trống</td>
+        </tr>
+        <tr>
+            <th>Username</th>
+            <td th:text="${user.username ?: 'Trống'}">Trống</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td th:text="${user.email ?: 'Trống'}">Trống</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td th:text="${user.name ?: 'Trống'}">Trống</td>
+        </tr>
+        <tr>
+            <th>Phone Number</th>
+            <td th:text="${user.phoneNumber ?: 'Trống'}">Trống</td>
+        </tr>
+        <tr>
+            <th>Birth Date</th>
+            <td th:text="${user.birthDate ?: 'Trống'}">Trống</td>
+        </tr>
+        <tr>
+            <th>Role</th>
+            <td th:text="${user.role.roleName ?: 'Trống'}">Trống</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/admin/users" class="btn btn-secondary">Back to User List</a>
+</div>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

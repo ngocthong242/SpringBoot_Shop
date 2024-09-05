@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User Role</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Edit Role for User</h2>
+    <form th:action="@{/admin/users/edit-role}" method="post">
+        <input type="hidden" th:value="${user.user_id}" name="id"/>
+        <div class="form-group">
+            <label for="role">Select Role:</label>
+            <select name="roleId" id="role" class="form-control" required>
+                <option th:each="role : ${roles}" th:value="${role.role_id}" th:text="${role.roleName}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Role</button>
+        <a href="/admin/users" class="btn btn-secondary">Back to User List</a>
+    </form>
+</div>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
