@@ -1,0 +1,40 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(22)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+// Spring Boot Starter Dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-security' // Để sử dụng Spring Security
+	implementation 'org.springframework.boot:spring-boot-starter-web' // Để tạo ứng dụng web
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Để sử dụng JPA với Spring
+	implementation 'mysql:mysql-connector-java:8.0.32' // Thay thế phiên bản MySQL connector mới nhất
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Để sử dụng Thymeleaf nếu cần
+	implementation 'org.springframework.boot:spring-boot-starter-validation' // Để hỗ trợ validation
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // Để chạy các bài kiểm tra
+
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	// JPA and Hibernate Annotations
+	compileOnly 'javax.persistence:persistence-api:1.0.2' // Để sử dụng các chú thích JPA
+}
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

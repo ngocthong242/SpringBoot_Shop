@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Form</title>
+</head>
+<body>
+<h2>Role Form</h2>
+<form th:action="@{/admin/roles/save}" th:object="${role}" method="post">
+    <input type="hidden" th:field="*{role_id}" />
+    <div>
+        <label>Role Name:</label>
+        <input type="text" th:field="*{role_name}" required />
+    </div>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

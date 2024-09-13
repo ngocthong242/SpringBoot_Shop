@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Update Product</h2>
+    <form th:action="@{/admin/products/update}" method="post">
+        <input type="hidden" th:value="${product.productId}" name="id"/>
+        <div class="form-group">
+            <label for="name">Product Name:</label>
+            <input type="text" class="form-control" id="name" name="name" th:value="${product.productName}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" required th:text="${product.description}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" class="form-control" id="price" name="price" th:value="${product.price}" required>
+        </div>
+        <div class="form-group">
+            <label for="stockQuantity">Stock Quantity:</label>
+            <input type="number" class="form-control" id="stockQuantity" name="stockQuantity" th:value="${product.stockQuantity}" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select name="categoryId" id="category" class="form-control" required>
+                <option th:each="category : ${categories}" th:value="${category.categoryId}" th:text="${category.categoryName}" th:selected="${category.categoryId == product.category.categoryId}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Product</button>
+        <a href="/admin/products" class="btn btn-secondary">Back to Product List</a>
+    </form>
+</div>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

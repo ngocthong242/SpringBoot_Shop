@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Management</title>
+</head>
+<body>
+<h2>Role List</h2>
+<a href="/admin/roles/add">Add New Role</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Role Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="role : ${roles}">
+        <td th:text="${role.role_id}"></td>
+        <td th:text="${role.role_name}"></td>
+        <td>
+            <a th:href="@{/admin/roles/edit/{id}(id=${role.role_id})}">Edit</a>
+            <a th:href="@{/admin/roles/delete/{id}(id=${role.role_id})}" onclick="return confirm('Are you sure?');">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
